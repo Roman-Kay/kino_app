@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kino_app/main.dart';
-import 'package:kino_app/widgets/Theme/app_button_style.dart';
+import 'package:kino_app/Theme/app_button_style.dart';
+import 'package:kino_app/widgets/main_screen/main_screen_widget.dart';
 
 class AuthWidget extends StatefulWidget {
   AuthWidget({Key? key}) : super(key: key);
@@ -75,18 +76,18 @@ class _FormWidjet extends StatefulWidget {
 }
 
 class __FormWidjetState extends State<_FormWidjet> {
-  final _loginTextControler = TextEditingController();
-  final _passwordTextControler = TextEditingController();
+  final _loginTextControler = TextEditingController(text: 'admin');
+  final _passwordTextControler = TextEditingController(text: 'admin');
   String? errorText = null;
   void _auth() {
     final login = _loginTextControler.text;
     final password = _passwordTextControler.text;
     if (login == 'admin' && password == 'admin') {
       errorText = null;
-      print('open app');
+
+      Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
       errorText = 'Неверный логин или пароль';
-      print('show error');
     }
     setState(() {});
   }
