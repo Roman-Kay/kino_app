@@ -11,9 +11,9 @@ class MainScreenWidget extends StatefulWidget {
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
 
-  static const TextStyle optionStyle =
+  static TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Новости',
     ),
@@ -36,9 +36,15 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       appBar: AppBar(
         title: Text('TMBD'),
       ),
-      body: Center(
-        child: _widgetOptions[_selectedTab],
-      ),
+      body: IndexedStack(index: _selectedTab, children: [
+        Text(
+          'Новости',
+        ),
+        MovieListWidget(),
+        Text(
+          'Сериалы',
+        ),
+      ]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
         items: [

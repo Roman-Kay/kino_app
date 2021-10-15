@@ -3,9 +3,21 @@ import 'package:kino_app/Theme/app_colors.dart';
 import 'package:kino_app/widgets/auth/auth_widget.dart';
 import 'package:kino_app/widgets/main_screen/main_screen_widget.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// class Movie {
+//   final String imageName;
+//   final String title;
+//   final String time;
+//   final String description;
+
+//   Movie({
+//     required this.imageName,
+//     required this.title,
+//     required this.time,
+//     required this.description,
+//   });
+// }
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
