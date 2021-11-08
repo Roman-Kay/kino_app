@@ -2,20 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kino_app/Theme/app_colors.dart';
 import 'package:kino_app/widgets/auth/auth_widget.dart';
 import 'package:kino_app/widgets/main_screen/main_screen_widget.dart';
-
-// class Movie {
-//   final String imageName;
-//   final String title;
-//   final String time;
-//   final String description;
-
-//   Movie({
-//     required this.imageName,
-//     required this.title,
-//     required this.time,
-//     required this.description,
-//   });
-// }
+import 'package:kino_app/widgets/movie_details/movie_details_widget.dart';
 
 void main() => runApp(const MyApp());
 
@@ -40,6 +27,14 @@ class MyApp extends StatelessWidget {
       routes: {
         '/auth': (context) => AuthWidget(),
         '/main_screen': (context) => MainScreenWidget(),
+        '/main_screen/movie_details': (context) {
+          final arguments = ModalRoute.of(context)?.settings.arguments as int;
+          if (arguments is int) {
+            return MovieDetailsWidhet(movieId: arguments);
+          } else {
+            return MovieDetailsWidhet(movieId: 0);
+          }
+        },
       },
       initialRoute: '/auth',
     );
